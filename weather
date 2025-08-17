@@ -1,0 +1,12 @@
+import requests
+
+API_KEY = "your_api_key"  # از OpenWeatherMap بگیر
+CITY = "Tehran"
+URL = f"http://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={API_KEY}&units=metric"
+
+response = requests.get(URL)
+data = response.json()
+
+print(f"City: {data['name']}")
+print(f"Temperature: {data['main']['temp']}°C")
+print(f"Weather: {data['weather'][0]['description']}")
